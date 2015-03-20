@@ -1,0 +1,41 @@
+<h1>User Profile</h1>
+
+<p>
+
+  <b>My Name:</b>
+  <%= best_in_place @user, :name %>
+</p>
+<p>
+ <b>My passion:</b>
+  <%= best_in_place @user, :passion%>
+</p>
+<p>
+ <b>My ideas</b>
+  <%= best_in_place @user, :ideas %>
+</p>
+<p>
+
+
+
+  <b>Email:</b>
+  <%= best_in_place @user, :email %>
+</p>
+<p>
+
+ <b>Conatct info:</b>
+  <%= best_in_place @user, :contact%>
+</p>
+<p>
+
+  <b>Gender:</b>
+ <%= best_in_place @user, :gender, type: :select, :collection [["Male", "Male"], ["Female", "Female"], ["", "Unspecified"]] %>
+</p>
+<p>
+  <b>Public profile:</b>
+<%= best_in_place @user, :public_profile, type: :checkbox, collection: %w[No Yes] %>
+</p>
+<p>
+ <%= best_in_place @user, :bio, type: :textarea %>
+</p>
+
+<%= link_to 'Edit Profile', edit_user_path(@user) %>

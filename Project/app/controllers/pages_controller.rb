@@ -1,8 +1,12 @@
 class PagesController < ApplicationController
+   before_action :authenticate_user!,
+   :only => [:home2]
+    
   def home
   end
-   
-  def signup
+
+
+  def home2
   end
 
   def login
