@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150312134440) do
+ActiveRecord::Schema.define(version: 20150404095246) do
 
   create_table "events", force: :cascade do |t|
     t.string   "title"
@@ -23,12 +23,12 @@ ActiveRecord::Schema.define(version: 20150312134440) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -37,6 +37,12 @@ ActiveRecord::Schema.define(version: 20150312134440) do
     t.datetime "updated_at"
     t.boolean  "admin"
     t.boolean  "approved"
+    t.string   "name"
+    t.datetime "date_of_birth"
+    t.boolean  "is_Ideator",             default: false
+    t.boolean  "is_Idea_Consultant",     default: false
+    t.boolean  "is_Idea_Enabler",        default: false
+    t.boolean  "is_Volunteer",           default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
