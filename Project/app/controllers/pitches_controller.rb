@@ -28,7 +28,7 @@ class PitchesController < ApplicationController
 
 
    
-  def pitcj_params
+  def pitch_params
     params.require(:pitch).permit(:title, :brief_description, :full_description, :email)
   end
 
