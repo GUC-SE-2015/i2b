@@ -3,6 +3,22 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
+
+
+
+
+   <div class="field"><%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true %></div>
+
+    <div class="field"><%= f.check_box :is_Ideator, {}, true %> <%= f.label :is_Ideator, "Ideator" %> </div>
+    <div class="field"><%= f.check_box :is_Idea_Consultant, {}, true %> <%= f.label :is_Idea_Consultant, "Idea Consultant" %> </div>
+    <div class="field"><%= f.check_box :is_Idea_Enabler, {}, true %> <%= f.label :is_Idea_Enabler, "Idea Enabler" %> </div>
+    <div class="field"><%= f.check_box :is_Volunteer, {}, true %> <%= f.label :is_Volunteer, "Volunteer" %> </div>
+
+    <div><%= f.label :date_of_birth %><br />
+        <%= f.date_select :date_of_birth %></div>
+
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
