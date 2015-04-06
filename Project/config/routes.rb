@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :events
   resources :pitches
+  resources :friendships
   get 'pages/home'
   get 'users/show'
   get 'events/userview'

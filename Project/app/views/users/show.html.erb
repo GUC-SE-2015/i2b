@@ -14,8 +14,17 @@
   <%= best_in_place @user, :ideas %>
 </p>
 <p>
-
-
+<h2>Your pitches</h2>
+<ul>
+  <% for friendship in @user.friendships %>
+  <li>
+    <%= h friendship.friend.emai %>
+    (<%= link_to "remove", friendship, :method => :delete %>)
+  </li>
+  <% end %>  
+</ul>
+<p>Username: <%=h @user.email %></p>
+<p><%= link_to "Find pitches", users_path %></p>
   <b>My Name:</b>
   <%= best_in_place @user, :name %>
 </p>
