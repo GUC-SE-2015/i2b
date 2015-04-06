@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150404144010) do
     t.string   "title"
     t.string   "brief_description"
     t.string   "full_description"
+    t.string   "url"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
   end
