@@ -16,3 +16,7 @@ class User < ActiveRecord::Base
     end 
   end
 end
+
+def pitches
+  return Pitch.where("email =?",self.email)
+end
