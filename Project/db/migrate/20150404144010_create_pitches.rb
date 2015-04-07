@@ -6,7 +6,7 @@ class CreatePitches < ActiveRecord::Migration
       t.string  :full_description
       t.string  :url
       add_foreign_key :users, :email
-       
+        t.boolean :request_joining_idea : false 
 
       t.timestamps null: false
     end
