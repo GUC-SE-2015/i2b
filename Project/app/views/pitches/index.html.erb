@@ -66,12 +66,23 @@
   <% @pitches.each do |pitch| %>
     <tr>
       <td><%= pitch.title %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
       <td><%= pitch.brief_description %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
       <td><%= pitch.full_description %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+
       <td><%= link_to 'Show', pitch_path(pitch) %>&nbsp;&nbsp;&nbsp;</td>
+
       <td><%= link_to 'Edit', edit_pitch_path(pitch) %>&nbsp;&nbsp;&nbsp;</td>
+
       <td><%= link_to 'Delete', pitch_path(pitch), method: :delete %></td>
-     <td><%= link_to 'Request joining team of idea',:method => :post %></td>
+
+
+
+
+      <td><%= link_to "Request joining team of idea", friendships_path(:friend_id => pitch), :method => :create %></td>
+      
+
     </tr>
   <% end %>
 </table>

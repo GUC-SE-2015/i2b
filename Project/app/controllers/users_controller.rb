@@ -17,7 +17,12 @@ class UsersController < ApplicationController
     render "new"
   end
 
-
+def create
+     
+      @users.each do |user|
+        Notification.create(pitch_title:@pitch_title, user_id: user.id)
+      end
+    end
     def index
     #if params[:approved] == "false"
        @users = User.all
