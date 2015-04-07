@@ -15,8 +15,10 @@ class User < ActiveRecord::Base
       super # Use whatever other message 
     end 
   end
-end
 
-def pitches
-  return Pitch.where("email =?",self.email)
+
+  def pitches
+    return Pitch.where("email =?",self.email)
+  end
+
 end
