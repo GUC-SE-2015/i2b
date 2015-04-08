@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 20150407221912) do
     t.string   "url"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.string   "username"
     t.string   "email"
     t.string   "link"
   end
