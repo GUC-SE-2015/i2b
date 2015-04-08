@@ -5,7 +5,9 @@
 
             <p><td><%= user.approved %></td></p>
 
-            <td><%= link_to "Edit" %></td>
+           <!-- <td><%= link_to "Edit" %></td> -->
+           
+            <td><%= link_to "approve", approve_user_path(user.id) %></td>
         </tr>
       <% end %>    
 </table>

@@ -16,8 +16,11 @@ Rails.application.routes.draw do
   get 'pages/signup'
   get 'pages/login'
   root 'pages#home'
+
   get 'approve' => 'consultancies#approve'
-  post 'approve' => 'consultancies#approve'
+
+  match 'users/:id/approve'=> 'users#approve_user', :via => [:get], as: 'approve_user'
+
   
 
   # The priority is based upon order of creation: first created -> highest priority.
