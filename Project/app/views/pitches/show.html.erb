@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,29 +50,23 @@
 
 <!-- Begining of the form code-->
 
- <div class="container">
-<h1>Idea2Business</h1>
-<h3> Posted Ideas </h3> 
 
-<br><br>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Brief Desc</th>
-        <th>Full Desc</th>
-    <th colspan="8"></th>
-  </tr>
+
+
+<div class="container">
+<h1>i2b</h1>
+
+<h4><%= @pitch.title %></h4>
  
-  <% @pitches.each do |pitch| %>
-    <tr>
-      <td><%= pitch.title %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td><%= pitch.brief_description %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td><%= pitch.full_description %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td><%= link_to 'Show', pitch_path(pitch) %>&nbsp;&nbsp;&nbsp;</td>
-      <td><%= link_to 'Edit', edit_pitch_path(pitch) %>&nbsp;&nbsp;&nbsp;</td>
-      <td><%= link_to 'Delete', pitch_path(pitch), method: :delete %></td>
-    </tr>
-  <% end %>
-</table>
-</div>
+<p>
+  <%= @pitch.brief_description %>
+</p>
 
+<p>
+  <%= @pitch.full_description %>
+</p>
+
+
+<%= link_to 'Back', pitches_path %> | 
+<%= link_to 'Edit', edit_pitch_path(@pitch) %>
+</div>
