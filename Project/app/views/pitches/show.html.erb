@@ -1,3 +1,9 @@
+<% 
+    cookies[:pitch_id] = @pitch.id
+    if current_user.is_Idea_Consultant 
+        cookies[:consultant_id] = current_user.id 
+    end 
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +17,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Business Frontpage - Start Bootstrap Template</title>
+    <title><%= @pitch.title %></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -56,17 +62,61 @@
 <div class="container">
 <h1>i2b</h1>
 
-<h4><%= @pitch.title %></h4>
+<h3>Title</h3>
+<h4><b><%= @pitch.title %></b></h4>
  
-<p>
+
+<h3>Ideator</h3>
+<h4><b><%= @pitch.user.email %></b></h4> 
+<!-- <p>
   <%= @pitch.brief_description %>
 </p>
-
+ -->
+<h6>Desription</h6>
 <p>
-  <%= @pitch.full_description %>
+  <b><%= @pitch.full_description %></b>
 </p>
 
+<h3>URL</h3>
+<h4><b><%= @pitch.link %></b></h4>
 
-<%= link_to 'Back', pitches_path %> | 
+<hr>
+<div align="center">
+    <% if current_user.is_Idea_Consultant %>
+        <%= link_to 'Add consultancy', { :controller => 'consultancies', :action => 'new' } %>
+        <br><br><br>
+    <% end %>
+    <h4>Consultancies</h4>
+    <table style="width:100%">
+        <th>
+            <tr style="font-weight:bold">
+                <td>Consultant</td>
+                <td>Consultancy</td>
+                <% if @pitch.user == current_user %>
+                    <td>Status</td>
+                <% end %>
+            </tr>
+        </th>
+        <% @consultancies.each do |c| %>
+            <tr>
+                <td style="width:20%"><%= c.consultant.email %></td>
+                <td style="width:60%"><%= c.body %></td>
+                <% if @pitch.user == current_user %>
+                    <% if c.approved %>
+                        <td style="width:20%;color:green">Approved</td>
+                    <% else %>
+                        <td style="width:20%"><%= button_to "Approve", { :controller => 'consultancies', :action => 'approve', :id => c.id } %></td>
+                    <% end %>
+                <% end %>
+            </tr>
+        <% end %>
+    </table>
+</div>
+
+
+<%= link_to 'Back', pitches_path %> 
+<!-- 
+| 
 <%= link_to 'Edit', edit_pitch_path(@pitch) %>
+ -->
 </div>
