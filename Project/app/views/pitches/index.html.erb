@@ -70,7 +70,7 @@
       <% if current_user.admin %>
         <td><%= link_to 'Edit', edit_pitch_path(pitch) %>&nbsp;&nbsp;&nbsp;</td>
         <td><%= link_to 'Delete', pitch_path(pitch), method: :delete %></td>
-         <td><%= link_to "Request joining team", friendships_path(:email => pitch), :method =>:create %></td>
+         <td><%= link_to "Request joining team", :method =>:create %></td>
 
       <% end %>
     </tr>

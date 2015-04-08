@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
  def create
-    @friendship = current_user.friendships.build(:req_id => params[:req_id])
+    @friendship = current_user.friendships.build(:email => params[:email])
     if @friendship.save
       flash[:notice] = "Request submitted pending for approval"
       redirect_to root_url
@@ -12,7 +12,7 @@ class FriendshipsController < ApplicationController
   
 
 def index
-      @friendships = Friendship.all
+      @friendship = Friendship.all
   end
 
 
