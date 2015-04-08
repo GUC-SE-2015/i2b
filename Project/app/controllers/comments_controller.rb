@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def create
     @pitch = Pitch.find(params[:id])
     @comment = @pitch.comments.create(comment_params)
-    redirect_to pitch_path(@article)
+    redirect_to pitch_path(@pitch)
   end
  
   private
