@@ -66,7 +66,35 @@
   <%= @pitch.full_description %>
 </p>
 
+<h5>Comments</h5>
+<% @article.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+<h6>Add a comment:</h6>
+<%= form_for([@pitch, @pitch.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 
 <%= link_to 'Back', pitches_path %> | 
 <%= link_to 'Edit', edit_pitch_path(@pitch) %>
 </div>
+
