@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   get 'pages/login'
   get 'friendships/index'
   root 'pages#home'
-  
+  match 'friendships/:id/approve'=> 'friendships#approve_friendship', :via => [:get], as: 'approve_friendship
+  '
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

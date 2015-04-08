@@ -3,7 +3,7 @@
         <tr>
             <p><td><%= current_user.friendships.friend_id %></td></p>
 
-            <td><%= link_to "Accept" %></td>
+            <td><%= link_to "Accept", approve_friendship_path(friendship.id) %></td>
         </tr>
       <% end %>    
 </table>

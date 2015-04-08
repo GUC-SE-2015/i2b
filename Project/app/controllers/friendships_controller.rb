@@ -24,4 +24,13 @@ def index
     #  @users = User.all
     #end
   end
+  
+  def approve_friendship
+  friendship = Frienship.find(params[:id])
+  friendship.approved = true
+  if friendship.save
+  end
+  redirect_to :back
+  end
+  
 end
