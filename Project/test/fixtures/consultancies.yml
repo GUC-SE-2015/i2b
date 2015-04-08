@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pitch_id: 1
+  body: MyText
+  consaltant_id: 1
+  approved: false
+
+two:
+  pitch_id: 1
+  body: MyText
+  consaltant_id: 1
+  approved: false

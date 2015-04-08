@@ -1,9 +1,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-
-
 <head>
 
     <meta charset="utf-8">
@@ -60,18 +57,20 @@
   <tr>
     <th>Title</th>
     <th>Brief Desc</th>
-        <th>Full Desc</th>
+    <!-- <th>Full Desc</th> -->
     <th colspan="8"></th>
   </tr>
  
   <% @pitches.each do |pitch| %>
-    <tr>
+    <tr style="margin-top:20px;">
       <td><%= pitch.title %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td><%= pitch.brief_description %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td><%= pitch.full_description %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td><%= link_to 'Show', pitch_path(pitch) %>&nbsp;&nbsp;&nbsp;</td>
-      <td><%= link_to 'Edit', edit_pitch_path(pitch) %>&nbsp;&nbsp;&nbsp;</td>
-      <td><%= link_to 'Delete', pitch_path(pitch), method: :delete %></td>
+      <td><%= pitch.brief_description.truncate(125) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <!-- <td><%= pitch.full_description %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> -->
+      <td><%= link_to 'Show', pitch_path(pitch) %>&nbsp;&nbsp;&nbsp;</td>      
+      <% if current_user.admin %>
+        <td><%= link_to 'Edit', edit_pitch_path(pitch) %>&nbsp;&nbsp;&nbsp;</td>
+        <td><%= link_to 'Delete', pitch_path(pitch), method: :delete %></td>
+      <% end %>
     </tr>
   <% end %>
 </table>

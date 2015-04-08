@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  resources :consultancies
+
   devise_for :views
   devise_for :users
   resources :events
   resources :pitches
+  resources :consultancies
   get 'pages/home'
   get 'users/show'
   get 'events/userview'
@@ -13,6 +16,8 @@ Rails.application.routes.draw do
   get 'pages/signup'
   get 'pages/login'
   root 'pages#home'
+  get 'approve' => 'consultancies#approve'
+  post 'approve' => 'consultancies#approve'
   
 
   # The priority is based upon order of creation: first created -> highest priority.
