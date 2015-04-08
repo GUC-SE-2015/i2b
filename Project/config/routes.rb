@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :views
   devise_for :users
   resources :events
-
+  resources :pitches
   get 'pages/home'
   get 'users/show'
   get 'events/userview'
