@@ -19,9 +19,11 @@ Rails.application.routes.draw do
 
   get 'approve' => 'consultancies#approve'
 
+  post 'approve' => 'consultancies#approve'
+
   match 'users/:id/approve'=> 'users#approve_user', :via => [:get], as: 'approve_user'
 
-  
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
