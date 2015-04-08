@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407221912) do
+ActiveRecord::Schema.define(version: 20150408181028) do
 
   create_table "consultancies", force: :cascade do |t|
     t.integer  "pitch_id"
@@ -31,6 +31,11 @@ ActiveRecord::Schema.define(version: 20150407221912) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "friendships", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pitches", force: :cascade do |t|
     t.string   "title"
     t.string   "brief_description"
@@ -38,7 +43,6 @@ ActiveRecord::Schema.define(version: 20150407221912) do
     t.string   "url"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.string   "username"
     t.string   "email"
     t.string   "link"
   end
@@ -64,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150407221912) do
     t.boolean  "is_Idea_Consultant",     default: false
     t.boolean  "is_Idea_Enabler",        default: false
     t.boolean  "is_Volunteer",           default: false
+    t.integer "user_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

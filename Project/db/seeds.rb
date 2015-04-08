@@ -17,7 +17,13 @@
 #admin_user1.approved = true
 #admin_user1.save!
 
-user = User.new( :email => 'jirobeno@hotmail.com', :password => '12345678')
-user.is_Ideator = true
-user.approved = true
-user.save!
+#user = User.new( :email => 'jirobeno@hotmail.com', :password => '12345678')
+#user.is_Ideator = true
+#user.approved = true
+#user.save!
+
+
+admin_user2 = User.new( :email => 'monica@hotmail.com', :password => '12345678')
+admin_user2.admin = true
+admin_user2.approved = true
+admin_user2.save!
