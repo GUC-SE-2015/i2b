@@ -6,12 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = User.new( :email => 'hisen@hotmail.com', :password => '12345678')
+#user = User.new( :email => 'hisen94@hotmail.com', :password => '12345678')
+#user.approved = true
+#user.save!
+
+
+
+#admin_user1 = User.new( :email => 'nageeb94@hotmail.com', :password => '12345678')
+#admin_user1.admin = true
+#admin_user1.approved = true
+#admin_user1.save!
+
+user = User.new( :email => 'jirobeno@hotmail.com', :password => '12345678')
+user.is_Ideator = true
 user.approved = true
 user.save!
-
-
-admin_user1 = User.new( :email => 'nageeb@hotmail.com', :password => '12345678')
-admin_user1.admin = true
-admin_user1.approved = true
-admin_user1.save!
