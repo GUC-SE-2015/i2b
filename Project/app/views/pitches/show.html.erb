@@ -67,7 +67,7 @@
 </p>
 
 <h5>Comments</h5>
-<% @article.comments.each do |comment| %>
+<% @pitch.comments.each do |comment| %>
   <p>
     <strong>Commenter:</strong>
     <%= comment.commenter %>
@@ -97,4 +97,10 @@
 <%= link_to 'Back', pitches_path %> | 
 <%= link_to 'Edit', edit_pitch_path(@pitch) %>
 </div>
+
+
+
+
+
+ 
 
