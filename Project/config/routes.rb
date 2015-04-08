@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'pages/home3'
   get 'pages/signup'
   get 'pages/login'
+  get 'friendships/index'
   root 'pages#home'
   
 

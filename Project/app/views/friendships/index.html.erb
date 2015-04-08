@@ -1,0 +1,9 @@
+<table>
+ <% for friendship in @friendships do %>
+        <tr>
+            <p><td><%= current_user.friendships.friend_id %></td></p>
+
+            <td><%= link_to "Accept" %></td>
+        </tr>
+      <% end %>    
+</table>

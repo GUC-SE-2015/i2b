@@ -37,8 +37,10 @@ ActiveRecord::Schema.define(version: 20150407203646) do
     t.string   "brief_description"
     t.string   "full_description"
     t.string   "url"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.boolean  "request_joining_idea"
+    t.boolean  "false"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -19,7 +19,7 @@ def destroy
   end
 def index
     #if params[:approved] == "false"
-       @friendships = friendship.all
+       @friendships = current_user.friendships.all
        # else
     #  @users = User.all
     #end
