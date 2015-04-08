@@ -2,6 +2,13 @@ Rails.application.routes.draw do
   devise_for :views
   devise_for :users
   resources :events
+  resources :pitches do
+    member do
+     get 'evaluateIdeaConsultant' 
+     get 'submitTheForm'
+    end
+  end
+ 
 
   get 'pages/home'
   get 'users/show'
