@@ -1,0 +1,11 @@
+<table>
+ <% for user in @users do %>
+        <tr>
+            <p><td><%= user.email %></td></p>
+
+            <p><td><%= user.approved %></td></p>
+
+            <td><%= link_to "Edit" %></td>
+        </tr>
+      <% end %>    
+</table>

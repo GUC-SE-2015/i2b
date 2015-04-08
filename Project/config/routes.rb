@@ -1,12 +1,32 @@
 Rails.application.routes.draw do
+  resources :consultancies
+
+  devise_for :views
   devise_for :users
   resources :events
+ resources :pitches do
+    member do
+     get 'evaluateIdeaConsultant' 
+     get 'submitTheForm'
+    end
+  end
 
+
+
+
+  resources :consultancies
   get 'pages/home'
+  get 'users/show'
+  get 'events/userview'
+  get 'users/index'
+  get 'users/edit'
   get 'pages/home2'
+  get 'pages/home3'
   get 'pages/signup'
   get 'pages/login'
   root 'pages#home'
+  get 'approve' => 'consultancies#approve'
+  post 'approve' => 'consultancies#approve'
   
 
   # The priority is based upon order of creation: first created -> highest priority.

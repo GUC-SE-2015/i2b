@@ -1,0 +1,124 @@
+<% 
+    cookies[:pitch_id] = @pitch.id
+    if current_user.is_Idea_Consultant 
+        cookies[:consultant_id] = current_user.id 
+    end 
+%>
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title><%= @pitch.title %></title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/business-frontpage.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" <%= link_to "Home", :controller => :pages, :action => :home2%></a>
+                <a class="navbar-brand" <%= link_to "Events Calendar", :controller => :events, :action => :index%></a>
+                <a class="navbar-brand" <%= link_to "Pitch Library", :controller => :pitches, :action => :index%></a>
+               <!-- <a class="navbar-brand" <%= link_to "Log In/Sign Up", :controller => :pages, :action => :home  %></a>-->
+            </div>
+</nav>
+
+<!-- Begining of the form code-->
+
+
+
+
+<div class="container">
+<h1>i2b</h1>
+
+<h3>Title</h3>
+<h4><b><%= @pitch.title %></b></h4>
+ 
+
+<h3>Ideator</h3>
+<h4><b><%= @pitch.user.email %></b></h4> 
+<!-- <p>
+  <%= @pitch.brief_description %>
+</p>
+ -->
+<h6>Desription</h6>
+<p>
+  <b><%= @pitch.full_description %></b>
+</p>
+
+<h3>URL</h3>
+<h4><b><%= @pitch.link %></b></h4>
+
+<hr>
+<div align="center">
+    <% if current_user.is_Idea_Consultant %>
+        <%= link_to 'Add consultancy', { :controller => 'consultancies', :action => 'new' } %>
+        <br><br><br>
+    <% end %>
+    <h4>Consultancies</h4>
+    <table style="width:100%">
+        <th>
+            <tr style="font-weight:bold">
+                <td>Consultant</td>
+                <td>Consultancy</td>
+                <% if @pitch.user == current_user %>
+                    <td>Status</td>
+                <% end %>
+            </tr>
+        </th>
+        <% @consultancies.each do |c| %>
+            <tr>
+                <td style="width:20%"><%= c.consultant.email %></td>
+                <td style="width:60%"><%= c.body %></td>
+                <% if @pitch.user == current_user %>
+                    <% if c.approved %>
+                        <td style="width:20%;color:green">Approved</td>
+                    <% else %>
+                        <td style="width:20%"><%= button_to "Approve", { :controller => 'consultancies', :action => 'approve', :id => c.id } %></td>
+                    <% end %>
+                <% end %>
+            </tr>
+        <% end %>
+    </table>
+</div>
+
+
+<%= link_to 'Back', pitches_path %> 
+<!-- 
+| 
+<%= link_to 'Edit', edit_pitch_path(@pitch) %>
+ -->
+
+ <%= link_to 'Evaluate Idea Consultant', evaluateIdeaConsultant_pitch_path(@pitch) %>  
+</div>
