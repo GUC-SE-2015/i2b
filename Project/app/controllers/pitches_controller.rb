@@ -5,6 +5,7 @@ class PitchesController < ApplicationController
 
   # This mehod is showing all the pitches
   # Author Naguib
+
   def index
       @pitches = Pitch.all
   end
@@ -17,10 +18,10 @@ class PitchesController < ApplicationController
 
   # This mehod is to initialize new idea
   # Author Naguib
+
   def new
       @pitch = Pitch.new
   end
-
 
   # This mehod creates the idea created in the new method
   # Author Naguib
@@ -53,10 +54,9 @@ class PitchesController < ApplicationController
 
   # This mehod is deleting the selected idea
   # Author Naguib
-    def destroy
+  def destroy
     @pitch = Pitch.find(params[:id])
     @pitch.destroy
- 
     redirect_to pitches_path 
   end
   
@@ -65,24 +65,24 @@ class PitchesController < ApplicationController
   def evaluateIdeaConsultant
     @pitch = Pitch.find(params[:id])
     if ! current_user.is_Ideator?
-    redirect_to pitches_path, alert: "you are not allowed to evaluate"
+      redirect_to pitches_path, alert: "you are not allowed to evaluate"
     end
  end
 
   #This method is to submit the evaluation form
   #Author Mariam Afifi
   def submitTheForm
-  user = User.find_by_email(params[:IdeaConsultantEmailAddress])
-  if user.nil?
-    redirect_to pitches_path, alert: "you are not an ideator"
-  else
-    redirect_to pitches_path, notice: "The form has been submitted successfuly"
- end
-end
-
+    user = User.find_by_email(params[:IdeaConsultantEmailAddress])
+    if user.nil?
+      redirect_to pitches_path, alert: "you are not an ideator"
+    else
+      redirect_to pitches_path, notice: "The form has been submitted successfuly"
+    end
+  end
 
 
   private
+  
   def pitch_params
     params.require(:pitch).permit(:title, :brief_description, :full_description, :url, :email)
   end

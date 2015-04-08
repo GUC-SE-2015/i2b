@@ -8,7 +8,6 @@ Rails.application.routes.draw do
      get 'submitTheForm'
     end
   end
- 
 
   get 'pages/home'
   get 'users/show'

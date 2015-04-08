@@ -6,21 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#user = User.where(:email => 'hisen94@hotmail.com',:password => '12345678').first_or_create
-#user.where(password: '12345678')
-#user.approved = true
-#user.save!
-
 user = User.new( :email => 'hisen94@hotmail.com', :password => '12345678')
 user.approved = true
 user.save!
-
-
-#admin_user1 = User.where(:email=> 'nageeb94@hotmail.com', :password => '12345678').first_or_create 
-#admin_user1.where(password:'12345678')
-#admin_user1.admin = true
-#dmin_user1.approved = true
-#dmin_user1.save!
 
 admin_user1 = User.new( :email => 'nageeb94@hotmail.com', :password => '12345678')
 admin_user1.admin = true
