@@ -45,6 +45,14 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :email, :password, :salt, :encrypted_password, :approved)
   end
+  
+  def approve_user
+  user = User.find(params[:id])
+  user.approved = true
+  if user.save
+  end
+  redirect_to :back
+  end
 
  
   # Other actions omitted.

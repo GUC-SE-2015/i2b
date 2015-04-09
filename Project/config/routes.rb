@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'approve' => 'consultancies#approve'
   post 'approve' => 'consultancies#approve'
+  match 'users/:id/approve'=> 'users#approve_user', :via => [:get], as: 'approve_user'
   
 
   # The priority is based upon order of creation: first created -> highest priority.
