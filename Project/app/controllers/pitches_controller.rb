@@ -7,7 +7,8 @@ class PitchesController < ApplicationController
 
 
   def index
-      @pitches = Pitch.all
+      @pitches = Pitch.paginate :per_page => 9, :page => params[:page]
+
   end
 
   def show

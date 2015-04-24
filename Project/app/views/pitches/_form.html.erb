@@ -14,36 +14,32 @@
       </ul>
     </div>
   <% end %>
- 
-  <p>
+
+  <h5>
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
+    <%= f.text_field :title, :style => "width:500px;"%>
+  </h5>
 
-  <p>
+  <h5>
     <%= f.label :email %><br>
-    <%= f.collection_select :email, User.all, :email, :email, include_blank: false %>
-  </p>
+    <%= f.collection_select :email, User.all, :email, :email, include_blank: false%>
+  </h5>
 
-  <p>
+  <h5>
     <%= f.label :brief_description %><br>
-    <%= f.text_area :brief_description, :style => "width:400px;height:150px;" %>
-  </p>
+    <%= f.text_area :brief_description, :style => "width:500px;height:50px;" %>
+  </h5>
 
-  <p>
-    <%= f.label :link %><br>
-    <%= f.text_field :link, :style => "width:400px;height:25px;" %>
-  </p>
 
-  <p>
+  <h5>
     <%= f.label :full_description %><br>
-    <%= f.text_area :full_description, :style => "width:400px;height:150px;" %>
-  </p>
+    <%= f.text_area :full_description, :style => "width:500px;height:180px;" %>
+  </h5>
  
 
 
-  <p>
+  <h5>
     <%= f.submit %>
-  </p>
+  </h5>
  
 <% end %>

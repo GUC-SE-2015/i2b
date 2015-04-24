@@ -1,24 +1,24 @@
-<p id="notice"><%= notice %></p>
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Page Header -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">  <%= @event.title %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @event.title %>
-</p>
+                    <hr>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
 
-<p>
-  <strong>Description:</strong>
-  <%= @event.description %>
-</p>
-
-<p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
-</p>
-
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time %>
-</p>
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+                <h3>Description: <h5><%= @event.description %></h5></h3>
+                
+                <h3>Start time: <h5><%= @event.start_time %></h5></h3>
+                
+                <h3>End time: <h5><%= @event.end_time %></h5></h3>
+                
+            </div>
+<br>
+<% if current_user.admin %>  
+<%= link_to 'Edit', edit_event_path(@event) %>
+<% end %>

@@ -1,13 +1,34 @@
-<table>
- <% for user in @users do %>
-        <tr>
-            <p><td><%= user.email %></td></p>
+<!-- Page Content -->
+<div class="container">
 
-            <p><td><%= user.approved %></td></p>
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">All Users
+                <hr>
+            </h1>
+        </div>
+    </div>
+    <!-- /.header -->
 
-            <!--<td><%= link_to "Edit" %></td>-->
-            
-            <td><%= link_to "approve", approve_user_path(user.id) %></td>
-        </tr>
-      <% end %>    
-</table>
+<table class="table table-striped table-hover ">
+	<thead>
+	    <tr>
+	      <th>#</th>
+	      <th>User Email</th>
+	      <th>User Status</th>
+	      <th>Approve user</th>
+	    </tr>
+	</thead>
+	<tbody>
+	 <% for user in @users do %>
+	    <tr>
+	      <td>-></td>
+	      <td><%= user.email %></td>
+	      <td><%= user.approved %></td>
+	      <td><%= link_to "approve", approve_user_path(user.id) %> </td>
+	    </tr>
+	  <% end %>    
+	</tbody>
+</table> 
+

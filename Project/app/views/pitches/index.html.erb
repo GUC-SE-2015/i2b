@@ -1,78 +1,37 @@
+<!-- Page Content -->
+<div class="container">
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+    <!-- Page Header -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Pitch Library
+                <small>&nbsp;&nbsp;&nbsp;Here are the submitted ideas</small>
+                <hr>
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<div class="row">
+    <% @pitches.each do |pitch| %>
+        <div class="col-md-4 portfolio-item">
+            <a href="#">
+                <img class="img-responsive" src="<%= pitch.url %>" alt="">
+            </a>
+            <h3>
+           <a href="#"><%= link_to pitch.title , pitch_path(pitch) %></a>
+            </h3>
+            <p align="justify"><%= pitch.brief_description %></p>
+            <% if current_user.admin %>
+            <p align="center"><%= link_to 'Edit', edit_pitch_path(pitch) %>&nbsp;&nbsp;<%= link_to 'Delete', pitch_path(pitch), method: :delete, data: { confirm: 'Are you sure?' } %></p>
 
-    <title>Business Frontpage - Start Bootstrap Template</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/business-frontpage.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" <%= link_to "Home", :controller => :pages, :action => :home2%></a>
-                <a class="navbar-brand" <%= link_to "Events Calendar", :controller => :events, :action => :index%></a>
-                <a class="navbar-brand" <%= link_to "Pitch Library", :controller => :pitches, :action => :index%></a>
-               <!-- <a class="navbar-brand" <%= link_to "Log In/Sign Up", :controller => :pages, :action => :home  %></a>-->
-            </div>
-</nav>
-
-<!-- Begining of the form code-->
-
- <div class="container">
-<h1>Idea2Business</h1>
-<h3> Posted Ideas </h3> 
-
-<br><br>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Brief Desc</th>
-    <!-- <th>Full Desc</th> -->
-    <th colspan="8"></th>
-  </tr>
- 
-  <% @pitches.each do |pitch| %>
-    <tr style="margin-top:20px;">
-      <td><%= pitch.title %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td><%= pitch.brief_description.truncate(125) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <!-- <td><%= pitch.full_description %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> -->
-      <td><%= link_to 'Show', pitch_path(pitch) %>&nbsp;&nbsp;&nbsp;</td>      
-      <% if current_user.admin %>
-        <td><%= link_to 'Edit', edit_pitch_path(pitch) %>&nbsp;&nbsp;&nbsp;</td>
-        <td><%= link_to 'Delete', pitch_path(pitch), method: :delete %></td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
+            <% end %>
+        </div>
+    <% end %>     
+</div>
 </div>
 
+<hr>
+<!-- Pagination -->
+<div class="text-center">
+<%= will_paginate @collection, renderer: BootstrapPagination::Rails %></div>

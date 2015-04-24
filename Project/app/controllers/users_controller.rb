@@ -38,9 +38,6 @@ class UsersController < ApplicationController
     @user.update_attributes(params[:user])
     respond_with @user
   end
-
-
-
    
   def user_params
     params.require(:user).permit(:username, :email, :password, :salt, :encrypted_password, :approved)
