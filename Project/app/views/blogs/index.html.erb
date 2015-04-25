@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Blogs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <!--<th>Content</th>-->
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td><%= blog.title %></td>
+        <td><%= link_to 'Show', blog %></td>
+        <%if current_user.admin%>
+        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%if current_user.is_Ideator%>
+<%= link_to 'New Case', new_blog_path %>
+<%end%>
