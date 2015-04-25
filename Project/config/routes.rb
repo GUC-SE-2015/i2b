@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :posts
+
   resources :consultancies
 
   devise_for :views
@@ -24,6 +26,7 @@ Rails.application.routes.draw do
   get 'pages/home3'
   get 'pages/signup'
   get 'pages/login'
+  get 'posts/index'
   root 'pages#home'
   get 'approve' => 'consultancies#approve'
   post 'approve' => 'consultancies#approve'
