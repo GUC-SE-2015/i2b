@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   resources :pitches
    resources :friendships
   resources :consultancies
-  
- 
+  resources :teams
+ get 'pitches/:controller/:action/:Add_Pitch_id_To_Pitches_Requestjoin' => 'pages#home'
   
   get 'pages/home'
   get 'users/show'

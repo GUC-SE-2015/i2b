@@ -1,5 +1,6 @@
 class Pitch < ActiveRecord::Base
 
+ belongs_to :team
 
 	def user
 		return User.find_by_email(self.email)

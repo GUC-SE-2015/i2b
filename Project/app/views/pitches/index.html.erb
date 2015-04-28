@@ -64,13 +64,14 @@
   <% @pitches.each do |pitch| %>
     <tr style="margin-top:20px;">
       <td><%= pitch.title %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <td><%= pitch.brief_description.truncate(125) %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-      <!-- <td><%= pitch.full_description %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> -->
+       <td><%= pitch.brief_description %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td><%= pitch.full_description %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td> 
       <td><%= link_to 'Show', pitch_path(pitch) %>&nbsp;&nbsp;&nbsp;</td>      
       <% if current_user.admin %>
         <td><%= link_to 'Edit', edit_pitch_path(pitch) %>&nbsp;&nbsp;&nbsp;</td>
         <td><%= link_to 'Delete', pitch_path(pitch), method: :delete %></td>
-         <td><%= link_to "Request joining team", :method =>:create %></td>
+         <td><%= link_to 'Request joining team of idea', {:controller => 'team' ,:action => 'post',:Add_Pitch_id_To_Pitches_Requestjoin => pitch.id} %></td>
+    <p  id="notice"><%=notice%>       
 
       <% end %>
     </tr>

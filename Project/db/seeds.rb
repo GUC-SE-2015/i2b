@@ -6,9 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#user = User.new( :email => 'hisen94@hotmail.com', :password => '12345678')
-#user.approved = true
-#user.save!
+#user1 = User.new( :email => 'hisen95@hotmail.com', :password => '12345678')
+
+#user1.approved = true
+#user1.save!
 
 
 
@@ -23,7 +24,13 @@
 #user.save!
 
 
-admin_user2 = User.new( :email => 'monica@hotmail.com', :password => '12345678')
-admin_user2.admin = true
-admin_user2.approved = true
-admin_user2.save!
+admin_user4 = User.new( :email => 'monica95@hotmail.com', :password => '12345678')
+admin_user4.admin = true
+admin_user4.approved = true
+admin_user4.save!
+
+
+admin_user9 = User.new( :email => 'xyz@hotmail.com', :password => '12345678')
+admin_user9.admin = true
+admin_user9.approved = true
+admin_user9.save!

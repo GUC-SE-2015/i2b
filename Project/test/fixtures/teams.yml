@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  integer: MyString
+  req_id: MyString
+  integer: MyString
+  pitch_id: MyString
+
+two:
+  integer: MyString
+  req_id: MyString
+  integer: MyString
+  pitch_id: MyString
