@@ -1,5 +1,6 @@
 <!--<p id="notice"><%= notice %></p>-->
-
+# This view is to show the comments on case study
+# Author Bergitte
 <p>
   <strong>Title:</strong>
   <%= @blog.title %>
@@ -11,23 +12,23 @@
 </p>
 
 <h2>Comments</h2>
-<% @blog.blogsComments.each do |blog_Comment| %>
+<% @blog.blogs_Comments.each do |blog_Comment| %>
   <p>
     <strong>Commenter:</strong>
-    <%= blogscomments.commenter %>
+    <%= blogs_comments.commenter %>
   </p>
  
   <p>
     <strong>Blogcomment:</strong>
-    <%= blogscomments.body %>
+    <%= blogs_comments.body %>
   </p>
 <% end %>
  
 <h2>Add a comment:</h2>
-<%= form_for([@blog, @blog.blogscomments.build]) do |f| %>
+<%= form_for([@blog, @blog.blogs_comments.build]) do |f| %>
   <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
   </p>
   <p>
     <%= f.label :body %><br>
