@@ -11,7 +11,6 @@ user.approved = true
 user.save!
 
 
-
 admin_user1 = User.new( :email => 'nageeb94@hotmail.com', :password => '12345678')
 admin_user1.admin = true
 admin_user1.approved = true
@@ -29,3 +28,4 @@ ideator_user1 = User.new( :email => 'mariam3fifi@hotmail.com', :password => '123
 ideator_user1.is_Ideator = true
 ideator_user1.approved = true
 ideator_user1.save!
+
