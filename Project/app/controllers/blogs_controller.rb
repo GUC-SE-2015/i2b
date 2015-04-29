@@ -1,28 +1,30 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
-  # GET /blogs
-  # GET /blogs.json
+  # This method is to view all case studies in the database
+  # Author: Hussien Kamal
   def index
     @blogs = Blog.all
   end
 
-  # GET /blogs/1
-  # GET /blogs/1.json
+  # This method is to show a specific case study
+  # Author: Hussien Kamal
   def show
   end
 
-  # GET /blogs/new
+  # This method is to make a new instance from the case studies
+  # Author : Hussien Kamal
   def new
     @blog = Blog.new
   end
 
-  # GET /blogs/1/edit
+  # This method is to edit a specific case study
+  # Author: Hussien Kamal
   def edit
   end
 
-  # POST /blogs
-  # POST /blogs.json
+  # This method is to submit a new case study
+  # Author: Hussien Kamal
   def create
     @blog = Blog.new(blog_params)
 
@@ -37,8 +39,8 @@ class BlogsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /blogs/1
-  # PATCH/PUT /blogs/1.json
+  # This method is to update a specific case study
+  # Author: Hussien Kamal
   def update
     respond_to do |format|
       if @blog.update(blog_params)
@@ -51,8 +53,8 @@ class BlogsController < ApplicationController
     end
   end
 
-  # DELETE /blogs/1
-  # DELETE /blogs/1.json
+  # This method is to delete a specific case study
+  # Author: Hussien Kamal
   def destroy
     @blog.destroy
     respond_to do |format|
@@ -67,7 +69,8 @@ class BlogsController < ApplicationController
       @blog = Blog.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # This method identifies the case study parameters
+    # Author: Hussien Kamal
     def blog_params
       params.require(:blog).permit(:title, :content)
     end
