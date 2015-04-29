@@ -11,20 +11,20 @@
 </p>
 
 <h2>Comments</h2>
-<% @blog.blogComments.each do |blogComment| %>
+<% @blog.blogsComments.each do |blog_Comment| %>
   <p>
     <strong>Commenter:</strong>
-    <%= blogcomment.commenter %>
+    <%= blogscomments.commenter %>
   </p>
  
   <p>
     <strong>Blogcomment:</strong>
-    <%= blogcomment.body %>
+    <%= blogscomments.body %>
   </p>
 <% end %>
  
 <h2>Add a comment:</h2>
-<%= form_for([@blog, @blog.comments.build]) do |f| %>
+<%= form_for([@blog, @blog.blogscomments.build]) do |f| %>
   <p>
     <%= f.label :commenter %><br>
     <%= f.text_field :commenter %>

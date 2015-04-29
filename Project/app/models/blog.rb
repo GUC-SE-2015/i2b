@@ -1,4 +1,3 @@
 class Blog < ActiveRecord::Base
-	  has_many :blogcomments
-
+	has_many :blog_comments
 end
