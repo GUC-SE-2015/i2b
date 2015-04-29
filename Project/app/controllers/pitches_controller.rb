@@ -28,13 +28,17 @@ class PitchesController < ApplicationController
 
   def create
     
-
     @pitch = Pitch.new(pitch_params)
-    @pitch.Requestermail = current_user.email
-    @pitch.Add_Pitch_id_To_Pitches_Requestjoin = params[:Add_Pitch_id_To_Pitches_Requestjoin]
-    flash[:notice] = "Request submitted pending for approval"
-       redirect_to root_url
-    
+    #@pitch.Requestermail = current_user.email
+    #@pitch.Add_Pitch_id_To_Pitches_Requestjoin = params[:Add_Pitch_id_To_Pitches_Requestjoin]
+    #flash[:notice] = "Request submitted pending for approval"
+     #  redirect_to root_url
+    if @pitch.save
+        redirect_to @pitch
+      else
+        render 'new'
+      end
+  
     end
 
 
@@ -61,9 +65,10 @@ class PitchesController < ApplicationController
     redirect_to pitches_path
   end
 
-#Add to the params of the pitch the requester mail and id of request (Monica)
+#Add to the params of the pitch the requester mail and id of request 
+#Monica
 
-  #private
+  private
   def pitch_params
     params.require(:pitch).permit(:title, :brief_description, :full_description, :url, :email, :username, :Requestermail , :Add_Pitch_id_To_Pitches_Requestjoin)
   end

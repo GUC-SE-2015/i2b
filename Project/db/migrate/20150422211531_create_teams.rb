@@ -5,9 +5,6 @@ class CreateTeams < ActiveRecord::Migration
       t.integer :req_id
     
 
-  	add_column :pitches, :pitch_id, :integer
-
-  	add_column :pitches, :email, :string
 
       t.timestamps null: false
     end

@@ -5,7 +5,8 @@ class TeamController < ApplicationController
      
   end
   
-  #Adds to the pitch the current user mail as the requester and the request it and flash notice the submission of the request (Monica)
+  #Adds to the pitch the current user mail as the requester and the request it and flash notice the submission of the request 
+  #Monica
  def post
     @pitch =Pitch.find(params[:Add_Pitch_id_To_Pitches_Requestjoin])
     @pitch.Requestermail = current_user.email
@@ -19,8 +20,8 @@ class TeamController < ApplicationController
  end
     
   
-# Adding a team (Monica)
-
+# Adding a team 
+#Monica
     def new
     @team = Team.new
   end
@@ -29,7 +30,8 @@ def index
       @team = Team.all
   end
 
-#Delets the request (Monica)
+#Deletes the request 
+#Monica
   def destroy
     @team = current_user.teams.find(params[:email])
     @team.destroy
