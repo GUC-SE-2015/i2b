@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :blogs
+
   resources :consultancies
 
   devise_for :views
