@@ -3,26 +3,30 @@ class PostsController < ApplicationController
 
   # GET /posts
   # GET /posts.json
+  #Author OmarHisham
   def index
     @posts = Post.all
   end
 
   # GET /posts/1
   # GET /posts/1.json
+  #Author OmarHisham
   def show
   end
 
   # GET /posts/new
+  #Author OmarHisham
   def new
     @post = Post.new
   end
 
   # GET /posts/1/edit
+  #Author OmarHisham
   def edit
   end
 
-  # POST /posts
-  # POST /posts.json
+  # Create new question and save it to table
+  # Author OmarHisham
   def create
     @post = Post.new(post_params)
 
@@ -37,8 +41,8 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
+  # popup notification after posting
+  #Author OmarHisham
   def update
     respond_to do |format|
       if @post.update(post_params)
@@ -51,8 +55,8 @@ class PostsController < ApplicationController
     end
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
+  # remove from table
+  # Author OmarHisham
   def destroy
     @post.destroy
     respond_to do |format|
@@ -63,11 +67,13 @@ class PostsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    #Author OmarHisham
     def set_post
       @post = Post.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    #Author OmarHisham
     def post_params
       params.require(:post).permit(:Category, :Question)
     end
