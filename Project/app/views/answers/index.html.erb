@@ -1,0 +1,27 @@
+<h1>Answers for <%= @post.title %></h1>
+
+<table>
+  <tr>
+    <th>Answerer</th>
+    <th>Body</th>
+  </tr>
+
+<% for answer in @answers %>
+  <tr>
+    <td><%=h answer.answerer %></td>
+    <td><%=h answer.body %></td>
+    <td><%= link_to 'Show', post_answer_path(@post, answer) %></td>
+    <td>
+        <%= link_to 'Edit', edit_post_answer_path(@post, answer) %>
+    </td>
+    <td>
+   
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New answer, new_post_answer_path(@post) %>
+<%= link_to 'Back to Post', @post %>

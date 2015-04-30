@@ -10,6 +10,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @new_ans = Answer.new
+    @new_ans.post_id = @post.id
   end
 
   # GET /posts/new

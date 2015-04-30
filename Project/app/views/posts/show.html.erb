@@ -117,9 +117,44 @@
   <strong>Question:</strong>
   <%= @post.Question %>
 </p>
+<!-- Check if consultant view the form of answering else answers only viewed--> 
+<!-- Monica -->
+<p>
+</br>
+<h2>Answers</h2>
+
+<% @post.answers.each do |a| %>
+<p>
+    <%= a.Answerer %> </p>
+    <p>
+    <%= a.body %></p>
+<% end %>
+
+   <br>
+
+
+
+   <p>
+<% if current_user.is_Idea_Consultant %>
+  <%= form_for @new_ans, url: answers_path do |f| %>
+    <b>Answer body</b><br>
+    <%= f.text_field :body %>
+    <%= f.hidden_field :post_id %>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+   
+<% end %>
+<% end %>
+
+
+
 
 <!--<%= link_to 'Edit', edit_post_path(@post) %>--> 
 <%= link_to 'Back', posts_path %>
+ 
+</p>
 <footer>
             <div class="row">
                 <div class="col-lg-12">
@@ -128,5 +163,6 @@
             </div>
             <!-- /.row -->
         </footer>
+ </div>
 
-    </div>
+ 

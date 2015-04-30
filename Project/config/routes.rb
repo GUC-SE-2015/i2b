@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
+  get 'answers/indexshow'
+
+  # get 'answers/index'
+
+  # get 'answers/new'
+
+  # get 'answers/edit'
+
   resources :posts
+
+  resources :answers
 
   resources :consultancies
 
@@ -13,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-
+resources :posts, :has_many => :answers
 
 
   resources :consultancies
