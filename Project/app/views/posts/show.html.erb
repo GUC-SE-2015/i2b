@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+
 <head>
 
     <meta charset="utf-8">
@@ -35,32 +37,13 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    
                 </button>
-                <a class="navbar-brand" <%= link_to "Home", :controller => :pages, :action => :home3  %></a>
-                <a class="navbar-brand" <%= link_to "Events Calendar", :controller => :events, :action => :index  %></a>
-              <!--<%= link_to "All Users", :controller => :users, :action => :index  %></a> -->
-               <a class="navbar-brand"<%= link_to "Users", :controller => :users, :action => :index, :approved => "false"  %></a>
-               <a class="navbar-brand" <%= link_to "Pitch Library", :controller => :pitches, :action => :index%></a>
-               <a class="navbar-brand" <%= link_to "Add Pitch", :controller => :pitches, :action => :new%></a>
-               <a class="navbar-brand" <%= link_to "Blog", :controller => :posts, :action => :index%></a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <!--<a href="#">About</a> -->
-                    </li>
-                    <li>
-                        <!-- <a href="#">Services</a> -->
-                    </li>
-                    <li>
-                        <!-- <a href="#">Contact</a> -->
-                    </li>
-                </ul>
-            </div>
+                <a class="navbar-brand" <%= link_to "Home", :controller => :pages, :action => :home2%></a>
+                <a class="navbar-brand" <%= link_to "Events Calendar", :controller => :events, :action => :index%></a>
+                <a class="navbar-brand" <%= link_to "Pitch Library", :controller => :pitches, :action => :index%></a>
+               <!-- <a class="navbar-brand" <%= link_to "Log In/Sign Up", :controller => :pages, :action => :home  %></a>-->
+            
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
@@ -81,37 +64,11 @@
     <!-- Page Content -->
     <div class="container">
 
-        <hr>
+      
 
-        <div class="row">
-            <div class="col-sm-8">
+        
 
-                <h2>Idea To Business</h2>
-                <p>Submit your business idea.</p>
-                <p>Get some advice from experts and volunteers. Get your idea evaluated.</p>
-              <!--  <p>
-                    <a class="btn btn-default btn-lg" href="#">Call to Action &raquo;</a>
-                </p> -->
-            </div>
-            <div class="col-sm-4">
-                <h2>Contact Us</h2>
-                <address>
-                    <strong>Awtad</strong>
-                    <br>_____________
-                    <br>www.awtad.com
-
-                    <br>
-                </address>
-                <address>
-                    <abbr title="Phone">P:</abbr>______________
-                    <br>
-                    <abbr title="Email">E:</abbr>______________
-                </address>
-            </div>
-        </div>
-        <!-- /.row -->
-
-        <hr>
+        
 
        <!-- <div class="row">
             <div class="col-sm-4">
@@ -135,15 +92,7 @@
 
         <hr>
 
-        <!-- Footer -->
-        <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; TekLife 2015</p>
-                </div>
-            </div>
-            <!-- /.row -->
-        </footer>
+        
 
     </div>
     <!-- /.container -->
@@ -157,3 +106,63 @@
 </body>
 
 </html>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @post.Category %>
+</p>
+
+<p>
+  <strong>Question:</strong>
+  <%= @post.Question %>
+</p>
+<!-- Check if consultant view the form of answering else answers only viewed--> 
+<!-- Monica -->
+<p>
+</br>
+<h2>Answers</h2>
+
+<% @post.answers.each do |a| %>
+<p>
+    <%= a.Answerer %> </p>
+    <p>
+    <%= a.body %></p>
+<% end %>
+
+   <br>
+
+
+
+   <p>
+<% if current_user.is_Idea_Consultant %>
+  <%= form_for @new_ans, url: answers_path do |f| %>
+    <b>Answer body</b><br>
+    <%= f.text_field :body %>
+    <%= f.hidden_field :post_id %>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+   
+<% end %>
+<% end %>
+
+
+
+
+<!--<%= link_to 'Edit', edit_post_path(@post) %>--> 
+<%= link_to 'Back', posts_path %>
+ 
+</p>
+<footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; TekLife 2015</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+ </div>
+
+ 

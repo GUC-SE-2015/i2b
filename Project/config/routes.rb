@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  resources :widgets
+
+  get 'answers/indexshow'
+
+  # get 'answers/index'
+
+  # get 'answers/new'
+
+  # get 'answers/edit'
+
+  resources :posts
+
+  resources :answers
+
   resources :consultancies
 
   devise_for :views
@@ -11,7 +25,7 @@ Rails.application.routes.draw do
     end
   end
 
-
+resources :posts, :has_many => :answers
 
 
   resources :consultancies
@@ -24,6 +38,7 @@ Rails.application.routes.draw do
   get 'pages/home3'
   get 'pages/signup'
   get 'pages/login'
+  get 'posts/index'
   root 'pages#home'
   get 'approve' => 'consultancies#approve'
   post 'approve' => 'consultancies#approve'

@@ -1,0 +1,20 @@
+<h1>Editing Answer</h1>
+
+<% form_for([@post, @answer]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :Answerer %><br />
+    <%= f.text_field :Answerer %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', post_answer_path(@post, @answer) %> |
+<%= link_to 'Back', post_answers_path(@post) %>
