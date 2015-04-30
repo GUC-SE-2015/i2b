@@ -80,22 +80,6 @@
 <h3>URL</h3>
 <h4><b><%= @pitch.link %></b></h4>
 
-<!--This Method is to put condition on who gets to view the Demo video and who views the full video
-#Author Jirayr Benohanian -->
-<% if current_user.admin || current_user.is_Idea_Consultant || current_user == @pitch.user %>
-    <h3>Full Video</h3>
-    <%#= video_tag @pitch.video_url :controls =>true %>
-    <% if @pitch.full_video && @pitch.full_video.length > 10 %>
-        <br>
-        <%=raw @pitch.full_video %>
-    <% end %>
-<% else %>
-    <h3>Demo Video</h3>
-    <% if @pitch.demo_video && @pitch.demo_video.length > 10 %>
-        <br>
-        <%=raw @pitch.demo_video %>
-    <% end %>
-<% end %>
 <hr>
 <div align="center">
     <% if current_user.is_Idea_Consultant %>

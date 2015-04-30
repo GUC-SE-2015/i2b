@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pitch:</strong>
+  <%= @consultancy.pitch_id %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @consultancy.body %>
+</p>
+
+<p>
+  <strong>Consaltant:</strong>
+  <%= @consultancy.consaltant_id %>
+</p>
+
+<p>
+  <strong>Approved:</strong>
+  <%= @consultancy.approved %>
+</p>
+
+<%= link_to 'Edit', edit_consultancy_path(@consultancy) %> |
+<%= link_to 'Back', consultancies_path %>
