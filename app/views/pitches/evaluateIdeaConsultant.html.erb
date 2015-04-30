@@ -1,0 +1,103 @@
+<!-- This view to fill in the form and submit -->
+<!-- Author Mariam Afifi -->
+
+
+<form action="<%= submitTheForm_pitch_path %>" id="IdeaConsultantEvaluationForm" method="get" onsubmit="return ValidateForm(this);">
+
+<script type="text/javascript">
+function ValidateForm(frm) {
+if (frm.IdeatorName.value == "") { alert('Ideator name is required.'); frm.IdeatorName.focus(); return false; }
+if (frm.IdeaConsultantName.value == "") { alert('Idea Consultant Name is required.'); frm.IdeaConsultantName.focus(); return false; }
+if (frm.IdeaConsultantEmailAddress.value == "") { alert('Idea Consultant Email Address is required.'); frm.IdeaConsultantEmailAddress.focus(); return false; }
+return true; }
+</script>
+<h1>Idea Consultant Evaluation Form</h1>
+<table style="width: 700px; border: 0;" cellpadding="4" cellspacing="0">
+<tr> <td colspan="2">
+<br /> <b>Ideator</b>
+</td> </tr> <tr> <td style="width:50%">
+<label for="IdeatorName">Ideator name*:</label><br />
+<input name="IdeatorName" type="text" maxlength="100" style="width: 300px;" />
+</td> <td style="width:50%">
+
+</td> </tr> <tr> <td>
+<label for="IdeatorEmailAddress">Ideator Email Address:</label><br />
+<input name="IdeatorEmailAddress" type="text" maxlength="50" style="width: 300px;" />
+</td> <td>
+
+</td> </tr> <tr> <td colspan="2">
+
+<br /> <b>Idea Consultant</b>
+</td> </tr> <tr> <td>
+<label for="IdeaConsultantName">Idea Consultant name*:</label><br />
+<input name="IdeaConsultantName" type="text" maxlength="100" style="width: 300px;" />
+</td> <td>
+
+</td> </tr> <tr> <td>
+<label for="IdeaConsultantEmailAddress">Idea Consultant Email Address*:</label><br />
+<input name="IdeaConsultantEmailAddress" type="text" maxlength="100" style="width: 300px;" />
+</td> <td>
+
+
+</td> </tr> <tr> <td colspan="2">
+<br /> <b>Idea Consultant performance</b>
+</td> </tr> <tr> <td>
+<select name="Creativity" style="width:155px;">
+<option value="">- Creativity -</option>
+<option value="Poor">Poor</option>
+<option value="Below Average">Below Average</option>
+<option value="Average">Average</option>
+<option value="Above Average">Above Average</option>
+<option value="Excellent">Excellent</option>
+<option value="N/A">N/A</option>
+</select>  
+<select name="OrganizationSkills" style="width:155px;">
+<option value="">- Organization Skills -</option>
+<option value="Poor">Poor</option>
+<option value="Below Average">Below Average</option>
+<option value="Average">Average</option>
+<option value="Above Average">Above Average</option>
+<option value="Excellent">Excellent</option>
+<option value="N/A">N/A</option>
+</select>
+</td> <td>
+ 
+
+</td> </tr> <tr> <td>
+<select name="ProblemSolving" style="width:155px;">
+<option value="">- Problem Solving -</option>
+<option value="Poor">Poor</option>
+<option value="Below Average">Below Average</option>
+<option value="Average">Average</option>
+<option value="Above Average">Above Average</option>
+<option value="Excellent">Excellent</option>
+<option value="N/A">N/A</option>
+</select>  
+<select name="Teamwork" style="width:155px;">
+<option value="">- Teamwork -</option>
+<option value="Poor">Poor</option>
+<option value="Below Average">Below Average</option>
+<option value="Average">Average</option>
+<option value="Above Average">Above Average</option>
+<option value="Excellent">Excellent</option>
+<option value="N/A">N/A</option>
+</select>
+</td> <td>
+
+
+</td> </tr> <tr> <td colspan="2">
+<br />
+<label for="Comments">Other comments:</label>
+<textarea name="Comments" rows="7" cols="40" style="width: 650px;"></textarea>
+</td> </tr> <tr> <td>
+<br />
+* - required fields
+</td> <td>
+<br />
+<div style="float: right">
+
+<input name="skip_Submit" type="submit" value="Submit" />
+
+</td> </tr>
+</table>
+</form>
