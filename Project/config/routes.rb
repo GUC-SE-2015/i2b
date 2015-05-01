@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :widgets
 
   get 'answers/indexshow'
 
@@ -10,7 +9,7 @@ Rails.application.routes.draw do
   # get 'answers/edit'
 
   resources :posts
-
+ resources :widgets
   resources :answers
 
   resources :consultancies

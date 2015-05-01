@@ -22,8 +22,8 @@ class AnswersController < ApplicationController
   	@post = Post.find(params[:post_id])
     @answer = @post.answers .find(params[:id])
   end
-#if consultant then can answer question creates a new answer and adds it to the answer table
-#Monica
+#This method : checks if consultant then can answer question creates a new answer and adds it to the answer table
+#Author :Monica
   def create
     @post = Post.find(params[:answer][:post_id])
   if current_user.is_Idea_Consultant 
@@ -42,8 +42,8 @@ class AnswersController < ApplicationController
     flash[:notice] = "Not Permitted to Answer"
       end
  end
- #updating the values for the answer
- #Monica
+ #This method : allows updating the values for the answer
+ #Author :Monica
   def update
     @post = Post.find(params[:post_id])
     @answer = Answer.find(params[:id])
@@ -53,8 +53,8 @@ class AnswersController < ApplicationController
       render :action => "edit"
     end
   end
-# To delete the answer from the database 
-#Monica
+# This method :To delete the answer from the database 
+#Author :Monica
    def destroy
     @answer = Answer.find(params[:id])
     @answer.destroy
