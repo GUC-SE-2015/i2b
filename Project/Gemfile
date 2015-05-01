@@ -41,6 +41,9 @@ gem 'fullcalendar-rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  
+
+
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -50,4 +53,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'best_in_place'
 gem 'bcrypt-ruby', '3.1.1.rc1', :require => 'bcrypt'
+
 gem "rspec-rails", :group => [:development, :test]

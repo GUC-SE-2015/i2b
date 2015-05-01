@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423123921) do
+ActiveRecord::Schema.define(version: 20150501001458) do
 
   create_table "consultancies", force: :cascade do |t|
     t.integer  "pitch_id"
@@ -98,5 +98,11 @@ ActiveRecord::Schema.define(version: 20150423123921) do
 
   add_index "views", ["email"], name: "index_views_on_email", unique: true
   add_index "views", ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
+
+  create_table "widgets", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
