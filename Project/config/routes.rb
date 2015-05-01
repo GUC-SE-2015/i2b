@@ -24,6 +24,9 @@ Rails.application.routes.draw do
      post 'submitTheEvaluation'
     end
   end
+  resources :conversations do
+  resources :messages
+ end
 
 resources :posts, :has_many => :answers
 
