@@ -28,6 +28,8 @@ gem 'bootstrap'
 gem 'devise'
 gem 'fullcalendar-rails'
 
+gem 'railroady'
+
 
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'
