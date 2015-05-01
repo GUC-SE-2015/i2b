@@ -1,8 +1,6 @@
 class TeamController < ApplicationController
 	def create
-    
     #@team = current_user.teams.build(:req_id => params[:req_id])
-     
   end
   
   #This method :Adds to the pitch the current user mail as the requester and the request it and flash notice the submission of the request 
