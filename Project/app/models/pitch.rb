@@ -1,4 +1,5 @@
 class Pitch < ActiveRecord::Base
+  has_many :evalutions
 	def user
 		return User.find_by_email(self.email)
 	end

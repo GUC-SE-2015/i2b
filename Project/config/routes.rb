@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     member do
      get 'evaluateIdeaConsultant' 
      get 'submitTheForm'
+     post 'submitTheEvaluation'
     end
   end
 
