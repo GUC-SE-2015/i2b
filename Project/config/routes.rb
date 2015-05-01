@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :blogs
+    resources :posts
+
 
   resources :consultancies
 
@@ -30,6 +32,8 @@ Rails.application.routes.draw do
   get 'approve' => 'consultancies#approve'
   post 'approve' => 'consultancies#approve'
   match 'users/:id/approve'=> 'users#approve_user', :via => [:get], as: 'approve_user'
+  get 'posts/index'
+
   
 
   # The priority is based upon order of creation: first created -> highest priority.
