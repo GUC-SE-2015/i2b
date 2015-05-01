@@ -56,8 +56,8 @@
 
 <!-- Begining of the form code-->
 
-
-
+<!-- This view intends to show the pitch -->
+<!-- Author Naguib -->
 
 <div class="container">
 <h1>i2b</h1>
@@ -114,11 +114,10 @@
 </div>
 
 
-<%= link_to 'Back', pitches_path %> 
-<!-- 
-| 
-<%= link_to 'Edit', edit_pitch_path(@pitch) %>
- -->
 
- <%= link_to 'Evaluate Idea Consultant', evaluateIdeaConsultant_pitch_path(@pitch) %>  
+<%= link_to 'Back', pitches_path %> | 
+<%= link_to 'Edit', edit_pitch_path(@pitch) %> |
+<%= link_to 'Evaluate Idea Consultant', evaluateIdeaConsultant_pitch_path(@pitch) %>  
+
+
 </div>

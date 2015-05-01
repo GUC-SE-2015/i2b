@@ -11,11 +11,11 @@ user.approved = true
 user.save!
 
 
-
 admin_user1 = User.new( :email => 'nageeb94@hotmail.com', :password => '12345678')
 admin_user1.admin = true
 admin_user1.approved = true
 admin_user1.save!
+
 
 user = User.new( :email => 'jirobeno@hotmail.com', :password => '12345678')
 user.is_Ideator = true
@@ -23,6 +23,13 @@ user.approved = true
 user.save!
 
 
+
+
+#ideator_user1 = User.where(:email => 'mariam@hotmail.com', :password => '12345678').first_or_create 
+#ideator.where(password:'12345678')
+#ideator_user1.ideator = true
+#ideator_user1.approved = true
+#ideator_user1.save!
 
 
 ideator_user1 = User.new( :email => 'mariam3fifi@hotmail.com', :password => '12345678')

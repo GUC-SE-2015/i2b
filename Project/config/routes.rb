@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   devise_for :views
   devise_for :users
   resources :events
- resources :pitches do
+
+  resources :pitches do
+
     member do
      get 'evaluateIdeaConsultant' 
      get 'submitTheForm'
@@ -17,8 +19,6 @@ Rails.application.routes.draw do
 
 
 
-
-  resources :consultancies
   get 'pages/home'
   get 'users/show'
   get 'events/userview'
