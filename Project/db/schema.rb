@@ -11,17 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20150430233236) do
 
-
-
-
-ActiveRecord::Schema.define(version: 20150423171740) do
-
-  create_table "blogs", force: :cascade do |t|
-    t.string   "title"
-    t.text     "content"
-
-  end
   create_table "answers", force: :cascade do |t|
     t.string   "Answerer"
     t.text     "body"
@@ -32,10 +23,16 @@ ActiveRecord::Schema.define(version: 20150423171740) do
 
   add_index "answers", ["post_id"], name: "index_answers_on_post_id"
 
+  create_table "blogs", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "comments", force: :cascade do |t|
     t.string   "commenter"
     t.text     "body"
-
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,6 +46,12 @@ ActiveRecord::Schema.define(version: 20150423171740) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "evalutions", force: :cascade do |t|
     t.integer  "user_id"
@@ -56,13 +59,6 @@ ActiveRecord::Schema.define(version: 20150423171740) do
     t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
-  create_table "conversations", force: :cascade do |t|
-    t.integer  "sender_id"
-    t.integer  "recipient_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-
   end
 
   create_table "events", force: :cascade do |t|
