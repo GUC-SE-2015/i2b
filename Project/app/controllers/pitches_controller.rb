@@ -70,24 +70,37 @@ class PitchesController < ApplicationController
 
 
 
-  #This method is that the ideaConsultant is to be evaluated by the ideator 
-  #Author Mariam Afifi
+ #This method is that the ideaConsultant is to be evaluated by the ideator 
+ #Author: Mariam Afifi
   def evaluateIdeaConsultant
-    @pitch = Pitch.find(params[:id])
+     @pitch = Pitch.find(params[:id])
     if ! current_user.is_Ideator?
     redirect_to pitches_path, alert: "you are not allowed to evaluate"
     end
  end
  
 
-  #This method is to submit the evaluation form
-  #Author Mariam Afifi
+ #This method is to submit the evaluation form
+ #Author: Mariam Afifi
   def submitTheForm
   user = User.find_by_email(params[:IdeaConsultantEmailAddress])
   if user.nil?
-    redirect_to pitches_path, alert: "you are not an ideator"
+    redirect_to pitches_path, alert: "He is not an idea consultant"
   else
     redirect_to pitches_path, notice: "The form has been submitted successfuly"
  end
 end
+
+ #This method is to post the evaluation 
+ #Author: Mariam Afifi
+  def submitTheEvaluation
+  @pitch = Pitch.find(params[:id])
+  if current_user.is_Idea_Consultant
+     current_user.evalutions.create(pitch: @pitch, comment: params[:Evaluate])
+     redirect_to @pitch, notice: "your evaluation has been posted"
+  else
+     redirect_to @pitch, alert: "you are not allowed to evaluate"
+    end
+  end
+
 end

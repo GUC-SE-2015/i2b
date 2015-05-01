@@ -13,15 +13,14 @@
 
 
 
+
 ActiveRecord::Schema.define(version: 20150423171740) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
 
-
-
-
+  end
   create_table "answers", force: :cascade do |t|
     t.string   "Answerer"
     t.text     "body"
@@ -47,6 +46,14 @@ ActiveRecord::Schema.define(version: 20150423171740) do
     t.boolean  "approved"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "evalutions", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "pitch_id"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "events", force: :cascade do |t|

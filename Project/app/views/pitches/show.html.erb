@@ -29,8 +29,28 @@
         <hr>
     </div>
 
+
 </div>
-<hr>
+
+
+<% @pitch.evalutions.each do |eval| %>
+  <tr style="margin-top:20px;">
+      <p>Evaluator: </p> 
+      <p><%= eval.user.email %></p>
+      <p>Evalution:</p>
+      <p><%= eval.comment %></p>     
+<% end %>
+
+ <%= link_to 'Evaluate Idea Consultant', evaluateIdeaConsultant_pitch_path(@pitch) %>  
+<form action="<%= submitTheEvaluation_pitch_path(@pitch) %>" id="EvaluateTheIdea" method="post" onsubmit="return ValidateForm(this);">
+<label for="Evaluate">Evaluate The Idea</label><br />
+<textarea name="Evaluate" rows="5" cols="40" style="width: 500px;"></textarea>
+<br />
+<div style="float: middle">
+
+ <input name="post" type="submit" value="Post" />  
+
+
 
 <div class="container">
     <div align="center">
@@ -67,4 +87,13 @@
 </div>
 
 <%= link_to 'Evaluate Idea Consultant', evaluateIdeaConsultant_pitch_path(@pitch) %>  
-</body>
+
+
+<%= link_to 'Back', pitches_path %> 
+<!-- 
+| 
+<%= link_to 'Edit', edit_pitch_path(@pitch) %>
+ -->
+
+
+
