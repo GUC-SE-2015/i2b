@@ -10,6 +10,9 @@ Rails.application.routes.draw do
      get 'submitTheForm'
     end
   end
+  resources :conversations do
+  resources :messages
+ end
 
 
 

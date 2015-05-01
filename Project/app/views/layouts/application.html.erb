@@ -72,6 +72,7 @@
                     <li>
                     <%= link_to "Events Calendar", :controller => :events, :action => :index  %>
                     </li>
+
                     <% if current_user.admin %>  
                     <li>
                     <%= link_to "New Event", :controller => :events, :action => :new%>
@@ -88,6 +89,11 @@
                     <%= link_to "All Users", :controller => :users, :action => :index%>
                     </li>   
                     <% end %>
+
+                    <li>
+                    <%= link_to "Conversations", :controller => :conversations, :action => :index  %>
+                    </li>
+
 
                 </ul>
             </div>

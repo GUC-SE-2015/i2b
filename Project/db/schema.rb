@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407221912) do
+ActiveRecord::Schema.define(version: 20150429102310) do
 
   create_table "consultancies", force: :cascade do |t|
     t.integer  "pitch_id"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20150407221912) do
     t.datetime "updated_at",    null: false
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "events", force: :cascade do |t|
     t.string   "title"
     t.string   "description"
@@ -30,6 +37,18 @@ ActiveRecord::Schema.define(version: 20150407221912) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.boolean  "read",            default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id"
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
   create_table "pitches", force: :cascade do |t|
     t.string   "title"
