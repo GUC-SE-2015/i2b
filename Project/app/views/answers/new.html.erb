@@ -1,0 +1,24 @@
+<h1>New Answer</h1>
+ <p>
+<% if current_user.is_Idea_Consultant %>
+<% form_for([@post, @answer]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :answerer %><br />
+    <%= f.text_field :answerer %>
+  </p>
+
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit "Submit Answer" %>
+  </p>
+<% end %>
+<% end %>
+<%= link_to 'Back', post_answers_path(@post) %>
+
+<!-- This view :Check if consultant view the form of answering else answers only viewed--> 
+<!-- Author :Monica -->

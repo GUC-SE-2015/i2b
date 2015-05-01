@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
 
+
   resources :blogs
 
+  get 'answers/indexshow'
+
+ 
+
   resources :posts
+ resources :widgets
+  resources :answers
 
 
   resources :consultancies
@@ -17,7 +24,7 @@ Rails.application.routes.draw do
     end
   end
 
-
+resources :posts, :has_many => :answers
 
 
   resources :consultancies
