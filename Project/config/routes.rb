@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :events
   resources :pitches do
     resources :comments
+  resources :blogs do
+     resources :blogComments  
   end 
 
 
